@@ -1,1 +1,1 @@
-app: ./runbot.sh
+app: ./bin/hubot -a irc -n goodbot
