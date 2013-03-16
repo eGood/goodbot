@@ -1,4 +1,4 @@
-hubot-irc-runnable
+Goodbot
 ==================
 
 A pre-packaged runnable version of the [hubot-irc](https://github.com/nandub/hubot-irc) adapter.
@@ -16,8 +16,19 @@ A pre-packaged runnable version of the [hubot-irc](https://github.com/nandub/hub
 - Run the Bot: `. runbot.sh`
 
 If the `runbot.sh` file is not executable you can change the execute permissions with
-    
-    chmod 755 runbot.sh
+```    
+chmod 755 runbot.sh
+```
+
+## Development 
+
+to run goodbot without the .sh file run
+
+```
+redis-server
+#new tab
+./bin/hubot -n goodbot
+```
 
 ## License
 
