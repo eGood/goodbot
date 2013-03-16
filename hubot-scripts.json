@@ -1,4 +1,6 @@
 [ 
+	"redis-brain.coffee",
+	"conversation.coffee",
 	"tweet.coffee", 
 	"shipit.coffee", 
 	"pivotalstorylisten.coffee",
@@ -10,5 +12,13 @@
 	"git-help.coffee",
 	"git-you-sucka.coffee",
 	"javascript-sandbox.coffee",
-	"sudo.coffee"
+	"sudo.coffee",
+	"github-commit-link.coffee",
+	"grumpycat.coffee",
+	"responders.coffee",
+	"history.coffee",
+	"look-of-disapproval.coffee",
+	"karma.coffee",
+	"goodbad.coffee",
+	"which-do-you-prefer.coffee"
 ]
