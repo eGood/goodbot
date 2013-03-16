@@ -22,7 +22,9 @@
     "htmlparser" : "1.7.6",
     "xml2js" : "0.2.6",
     "soupselect" : "0.2.0",
-    "hubot-irc": "0.1.x"
+    "hubot-irc": "0.1.x",
+    "jsdom": "0.5.2",
+    "underscore": "1.4.4"
   },
   "engines": {
     "node": "0.6.x",

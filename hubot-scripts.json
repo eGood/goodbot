@@ -1,8 +1,6 @@
-[
-	"redis-brain.coffee", 
+[ 
 	"tweet.coffee", 
 	"shipit.coffee", 
-	"pivotal.coffee", 
 	"pivotalstorylisten.coffee",
 	"npm.coffee",
 	"zombies.coffee",
