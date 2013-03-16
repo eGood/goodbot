@@ -1,1 +1,16 @@
-["redis-brain.coffee", "tweet.coffee", "shipit.coffee"]
+[
+	"redis-brain.coffee", 
+	"tweet.coffee", 
+	"shipit.coffee", 
+	"pivotal.coffee", 
+	"pivotalstorylisten.coffee",
+	"npm.coffee",
+	"zombies.coffee",
+	"emoji.coffee",
+	"chuck-norris.coffee",
+	"ackbar.coffee",
+	"git-help.coffee",
+	"git-you-sucka.coffee",
+	"javascript-sandbox.coffee",
+	"sudo.coffee"
+]
