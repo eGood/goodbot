@@ -1,9 +1,8 @@
 # Description:
-#   Inspect the data in redis easily
+#   List Stories from Pivitol based off state
 #
 # Commands:
-#   hubot show users - Display all users that hubot knows about
-#   hubot show storage - Display the contents that are persisted in the brain
+#   hubot show {state} stories for {project} - Display list of stories
 
 
 Pivotal = require "pivotal"
@@ -35,7 +34,7 @@ module.exports = (robot) ->
       else
         #console.log "project found"
         Pivotal.getStories project.id, 
-          limit : 100
+          limit : 20
           filter : filter
         , (err, stories) ->
           console.log err if err
