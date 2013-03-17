@@ -1,0 +1,45 @@
+# Description:
+#   Inspect the data in redis easily
+#
+# Commands:
+#   hubot show users - Display all users that hubot knows about
+#   hubot show storage - Display the contents that are persisted in the brain
+
+
+Pivotal = require "pivotal"
+token = process.env.HUBOT_PIVOTAL_TOKEN || null
+cache = {};
+try
+  Pivotal.useToken token
+catch err
+  throw "A valid token for Pivotal Tracker to use Pivotal Commands"
+
+#gets a project using project name
+getProject = (query, callback) ->
+  Pivotal.getProjects (err, projects) ->
+    cache.projects = projects;
+    for project in projects.project
+        if query.test project.name
+          project.id = parseFloat project.id
+          callback project
+          return null
+    callback null
+
+module.exports = (robot) ->
+  robot.respond /show\s+(me\s+)?(.*)+stories\s+(for\s+)?(.*)/i, (msg) ->
+    filter = "current_state:\"#{msg.match[2]}\""
+    query = new RegExp msg.match[4]
+    getProject query, (project) ->
+      if !project
+        msg.send("I could not find #{query}, perhaps you spelt something wrong");
+      else
+        #console.log "project found"
+        Pivotal.getStories project.id, 
+          limit : 100
+          filter : filter
+        , (err, stories) ->
+          console.log err if err
+          stories = stories.story
+          for story in stories
+            if story.id
+              msg.send("##{story.id} - #{story.name}")
