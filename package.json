@@ -1,8 +1,8 @@
 {
   "name": "goodbot",
-  "version": "2.4.9",
-  "author": "GitHub Inc.",
-  "keywords": "github hubot campfire bot",
+  "version": "2.4.9-10",
+  "author": "GitHub Inc., eGood LLC",
+  "keywords": "github hubot IRC bot",
   "description": "A simple helpful Robot for your Company",
   "licenses": [
     {
