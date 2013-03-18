@@ -10,19 +10,24 @@ A pre-packaged runnable version of the [hubot-irc](https://github.com/nandub/hub
 
 ## Setup
 
-- Clone this repo or download the [latest tag](https://github.com/jgable/hubot-irc-runnable/tags).
-- Install dependencies: `npm install`
-- Change the settings in the `runbot.sh` file to match your situation
-- Run the Bot: `. runbot.sh`
+```
+git clone https://github.com/eGood/goodbot.git
+cd goodbot
+./bin/hubot
+```
+## Connecting to IRC
 
-If the `runbot.sh` file is not executable you can change the execute permissions with
-```    
-chmod 755 runbot.sh
+Follow directions here [Hubot IRC Adapter](https://github.com/nandub/hubot-irc)
+
+Then run
+
+```
+./bin/hubot -n botname -a irc
 ```
 
-## Development 
+If `redis` is not installed, goodbot will still work but his data will not be persistant, and scripts that depend on a database will not as intended
 
-to run goodbot without the .sh file run
+## Development 
 
 ```
 redis-server
