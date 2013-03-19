@@ -1,7 +1,7 @@
 Goodbot
 ==================
 
-A pre-packaged runnable version of the [hubot-irc](https://github.com/nandub/hubot-irc) adapter.
+eGoods personal bot.
 
 ## Dependencies
 
