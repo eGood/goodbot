@@ -22,7 +22,7 @@ module.exports = (robot) ->
       author = commit.committer.name
       message = commit.message
       repo = params.repository.name
-      room = "eGood"
+      room = "#eGood"
       txt = "#{author} commited to #{repo} - #{message}"
       robot.messageRoom room, txt 
     
