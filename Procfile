@@ -1,1 +1,1 @@
-web: ./bin/hubot -a irc -n goodbot
+app: ./bin/hubot -a irc -n goodbot
