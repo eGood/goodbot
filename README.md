@@ -1,7 +1,7 @@
 Goodbot
 ==================
 
-eGoods personal bot.
+eGoods personal bot. Loves Boobs
 
 ## Dependencies
 
