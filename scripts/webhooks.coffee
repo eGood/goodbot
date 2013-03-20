@@ -22,6 +22,8 @@ module.exports = (robot) ->
       author = commit.committer.name
       message = commit.message
       repo = params.repository.name
+      # static right need to store this dat in database
+      # room = robot.brain.data.webkooks[repo].room
       room = "#eGood"
       txt = "#{author} commited to #{repo} - #{message}"
       robot.messageRoom room, txt 
