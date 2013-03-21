@@ -19,5 +19,9 @@
 	"look-of-disapproval.coffee",
 	"karma.coffee",
 	"goodbad.coffee",
-	"which-do-you-prefer.coffee"
+	"which-do-you-prefer.coffee",
+	"ascii.coffee",
+	"tasks.coffee",
+	"tell.coffee",
+	"put-it-back.coffee"
 ]
