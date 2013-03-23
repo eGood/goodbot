@@ -29,3 +29,17 @@ module.exports = (robot) ->
       robot.messageRoom room, txt 
     
     res.end "webhook"
+
+  robot.router.post "/event", (req, res) ->
+    params = req.body;
+
+    if params.event
+  
+      event = params.event
+      # static right need to store this dat in database
+      # room = robot.brain.data.webkooks[repo].room
+      room = "#eGood"
+      txt = "Event - #{event}"
+      robot.messageRoom room, txt 
+    
+    res.end "success"
