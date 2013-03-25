@@ -4,6 +4,7 @@
 # Commands:
 #   n/a
 
+Parser = require("xml2js").Parser
 
 module.exports = (robot) ->
   robot.router.post "/message/create", (req, res) ->
@@ -13,6 +14,8 @@ module.exports = (robot) ->
     room = params["room"]
     robot.messageRoom room, message 
     res.end "Message Sent"
+
+  # github webhook
 
   robot.router.post "/webhook", (req, res) ->
     params = JSON.parse(req.body.payload);
@@ -30,6 +33,8 @@ module.exports = (robot) ->
     
     res.end "webhook"
 
+  # event webhook
+
   robot.router.post "/event", (req, res) ->
     params = req.body;
 
@@ -42,4 +47,21 @@ module.exports = (robot) ->
       txt = "Event - #{event}"
       robot.messageRoom room, txt 
     
+    res.end "success"
+
+  # pivotal webhook
+
+  robot.router.post "/pivotal", (req, res) ->
+
+    (new Parser).parseString req.body.xml, (err, json)->
+      room = "#eGood"
+      if err
+        robot.messageRoom room, "Error recieving data from please check webhook script"
+
+      else
+        activity = json.activity
+
+        robot.messageRoom room, "#{activity["author"][0]} - #{activity["event_type"][0]} on #{activity.stories[0].story[0].url[0]}"
+
+
     res.end "success"
