@@ -53,7 +53,7 @@ module.exports = (robot) ->
 
   robot.router.post "/pivotal", (req, res) ->
 
-    console.log req.body
+    console.log req
 
     (new Parser).parseString req.body.xml, (err, json)->
       room = "#eGood"
