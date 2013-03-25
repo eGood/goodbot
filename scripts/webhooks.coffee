@@ -53,10 +53,12 @@ module.exports = (robot) ->
 
   robot.router.post "/pivotal", (req, res) ->
 
+    console.log req.body
+
     (new Parser).parseString req.body.xml, (err, json)->
       room = "#eGood"
       if err
-        robot.messageRoom room, "Error recieving data from please check webhook script"
+        robot.messageRoom room, "Error recieving data from pivotal please check webhook script"
 
       else
         activity = json.activity
