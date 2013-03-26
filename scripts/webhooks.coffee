@@ -67,6 +67,7 @@ module.exports = (robot) ->
           if err
             console.log err 
           else
+            console.log result
             activity = result.activity
             robot.messageRoom room, "#{activity.description[0]} - #{activity.stories[0].story[0].url[0]}"
 
