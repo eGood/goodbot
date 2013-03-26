@@ -57,13 +57,13 @@ module.exports = (robot) ->
   robot.router.post "/pivotal", (req, res) ->
 
     room = '#eGood'
-    console.log "pivotal activity"
     if /(application\/xml|text\/xml)/.test req.headers["content-type"]
-      console.log "WE HAVE XML"
       body = null
       req.on "data", (chunk) ->
+        console.log chunk
         body = chunk
       req.on "end", () ->
+        console.log "req.end #{body}"
         Parser body, (err, result) ->
           if err
             console.log err 
