@@ -57,8 +57,9 @@ module.exports = (robot) ->
   robot.router.post "/pivotal", (req, res) ->
 
     room = '#eGood'
-
+    console.log "pivotal activity"
     if /(application\/xml|text\/xml)/.test req.headers["content-type"]
+      console.log "WE HAVE XML"
       body = null
       req.on "data", (chunk) ->
         body = chunk
@@ -70,5 +71,8 @@ module.exports = (robot) ->
             console.log result
             activity = result.activity
             robot.messageRoom room, "#{activity.description[0]} - #{activity.stories[0].story[0].url[0]}"
+
+    else
+      console.log "we do not have xml #{req.headers["content-type"]}"  
 
     res.end "success"
