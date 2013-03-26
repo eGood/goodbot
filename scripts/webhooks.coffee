@@ -67,12 +67,13 @@ module.exports = (robot) ->
         Parser body, (err, result) ->
           if err
             console.log err 
+            res.end "failure"  
           else
             console.log result
             activity = result.activity
             robot.messageRoom room, "#{activity.description[0]} - #{activity.stories[0].story[0].url[0]}"
+            res.end "success"  
 
     else
-      console.log "we do not have xml #{req.headers["content-type"]}"  
-
-    res.end "success"
+      console.log "we do not have xml #{req.headers["content-type"]}"
+      res.end "failure"  
