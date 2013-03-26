@@ -72,7 +72,7 @@ module.exports = (robot) ->
             console.log result
             activity = result.activity
             url = activity.stories[0].story[0].url[0].replace /services\/v3\//, ""
-            robot.messageRoom room, "#{activity.description[0]} - #{activity.stories[0].story[0].url[0]}"
+            robot.messageRoom room, "#{activity.description[0]} - #{url}"
             res.end "success"  
 
     else
