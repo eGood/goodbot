@@ -16,12 +16,14 @@ catch err
 #gets a project using project name
 getProject = (query, callback) ->
   Pivotal.getProjects (err, projects) ->
+    console.log err if err
     cache.projects = projects;
-    for project in projects.project
-        if query.test project.name
-          project.id = parseFloat project.id
-          callback project
-          return null
+    if projects
+      for project in projects.project
+          if query.test project.name
+            project.id = parseFloat project.id
+            callback project
+            return null
     callback null
 
 module.exports = (robot) ->
@@ -42,3 +44,9 @@ module.exports = (robot) ->
           for story in stories
             if story.id
               msg.send("##{story.id} - #{story.name}")
+
+  robot.respond /show\s+(me\s+)?comments\s+(for|on)\s+story\s+#(0-9)+/, (msg) ->
+    #story = parseFloat msg.match[4]
+    msg.send "so you want me to find story comments"
+    #Pivotal.getStory story, (err, story) ->
+

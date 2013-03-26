@@ -4,9 +4,12 @@
 # Commands:
 #   n/a
 
-Parser = require("xml2js").Parser
+Parser = require("xml2js").parseString
+
+  
 
 module.exports = (robot) ->
+    
   robot.router.post "/message/create", (req, res) ->
     params = req.body
     console.log params
@@ -53,15 +56,18 @@ module.exports = (robot) ->
 
   robot.router.post "/pivotal", (req, res) ->
 
-    (new Parser).parseString req.body, (err, json)->
-      room = "#eGood"
-      if err
-        robot.messageRoom room, "Hey guys something just happened on pivotal"
+    room = '#eGood'
 
-      else
-        activity = json.activity
-
-        robot.messageRoom room, "#{activity["author"][0]} - #{activity["event_type"][0]} on #{activity.stories[0].story[0].url[0]}"
-
+    if /(application\/xml|text\/xml)/.test req.headers["content-type"]
+      body = null
+      req.on "data", (chunk) ->
+        body = chunk
+      req.on "end", () ->
+        Parser body, (err, result) ->
+          if err
+            console.log err 
+          else
+            activity = result.activity
+            robot.messageRoom room, "#{activity.description[0]} - #{activity.stories[0].story[0].url[0]}"
 
     res.end "success"
