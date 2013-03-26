@@ -23,5 +23,6 @@
 	"ascii.coffee",
 	"tasks.coffee",
 	"tell.coffee",
-	"put-it-back.coffee"
+	"put-it-back.coffee",
+	"keep-alive.coffee"
 ]
