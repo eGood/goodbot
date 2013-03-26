@@ -56,7 +56,7 @@ module.exports = (robot) ->
     (new Parser).parseString req.body, (err, json)->
       room = "#eGood"
       if err
-        robot.messageRoom room, "Hey guys somethings just happen on pivotal"
+        robot.messageRoom room, "Hey guys somethings just happened on pivotal"
 
       else
         activity = json.activity
