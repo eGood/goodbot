@@ -28,6 +28,7 @@ module.exports = (robot) ->
       # on gitlabs documentation looks like the commiter is diff
       # the key is author => referance : https://wiki.jenkins-ci.org/display/JENKINS/Gitlab+Hook+Plugin
       author = commit.committer.name
+      url =  commit.url
       message = commit.message
       repo = params.repository.name
       # static right need to store this dat in database
