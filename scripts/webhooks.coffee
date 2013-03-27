@@ -18,20 +18,22 @@ module.exports = (robot) ->
     robot.messageRoom room, message 
     res.end "Message Sent"
 
-  # github webhook
+  # github/gitlab webhook
 
   robot.router.post "/webhook", (req, res) ->
     params = JSON.parse(req.body.payload);
     if params.commits
       index = params.commits.length - 1
       commit = params.commits[index]
+      # on gitlabs documentation looks like the commiter is diff
+      # the key is author => referance : https://wiki.jenkins-ci.org/display/JENKINS/Gitlab+Hook+Plugin
       author = commit.committer.name
       message = commit.message
       repo = params.repository.name
       # static right need to store this dat in database
       # room = robot.brain.data.webkooks[repo].room
       room = "#eGood"
-      txt = "#{author} commited to #{repo} - #{message}"
+      txt = "#{author} pushed to #{repo} - #{message} - #{url}"
       robot.messageRoom room, txt 
     
     res.end "webhook"
