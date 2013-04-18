@@ -1,7 +1,8 @@
+<<<<<<< HEAD
 Goodbot
 ==================
 
-eGoods personal bot. Loves Boobs
+eGoods personal bot. Loves Boobs, Tacos, and yoga pants --- dont ask.
 
 ## Dependencies
 
@@ -38,3 +39,4 @@ redis-server
 ## License
 
 MIT License, available via a quick google search if needed.
+
