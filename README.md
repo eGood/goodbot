@@ -1,8 +1,7 @@
-<<<<<<< HEAD
 Goodbot
 ==================
 
-eGoods personal bot. Loves Boobs, Tacos, and yoga pants --- dont ask.
+eGoods personal bot. Loves Tacos --- dont ask.
 
 ## Dependencies
 
