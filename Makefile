@@ -1,35 +1,23 @@
-test: coffee-dep js
-	@find test -name '*_test.coffee' | xargs -n 1 -t coffee
+NPM_EXECUTABLE_HOME := node_modules/.bin
 
-dev: js
-	@coffee -wc --bare -o lib src/
+PATH := ${NPM_EXECUTABLE_HOME}:${PATH}
 
-VERSION = $(shell coffee src/npm-version.coffee)
-release: npm-dep js
-	git commit --allow-empty -a -m "release $(VERSION)"
-	git tag v$(VERSION)
-	git push origin master
-	git push origin v$(VERSION)
-	@make remove-js
+test: deps
+		@find test -name '*_test.coffee' | xargs -n 1 -t coffee
 
-publish: npm-dep js
-	npm publish
+dev: generate-js
+		@coffee -wc --bare -o lib src/*.coffee
 
-install: npm-dep js
-	npm install
-	@make remove-js
+generate-js:
+		@find src -name '*.coffee' | xargs coffee -c -o lib
 
-js: coffee-dep
-	@coffee -c --bare -o lib src/
+package:
+		@bin/hubot -c hubot
+		@chmod 0755 hubot/bin/hubot
 
 remove-js:
-	@rm -fr lib/
+		@rm -fr lib/
 
-npm-dep:
-	@test `which npm` || echo 'You need npm to do npm install... makes sense?'
-
-coffee-dep:
-	@test `which coffee` || echo 'You need to have CoffeeScript in your PATH.\nPlease install it using `brew install coffee-script` or `npm install coffee-script`.'
+deps:
 
 .PHONY: all
-

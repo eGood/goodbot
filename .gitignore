@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 lib-cov
 *.seed
 *.log
@@ -15,3 +16,6 @@ node_modules
 npm-debug.log
 lib
 *.tgz
+=======
+node_modules
+>>>>>>> hubot/master
